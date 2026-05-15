@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #36454f;
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer utilities {
+  .nav-link {
+    @apply text-sm font-medium text-[#36454f] hover:text-[#22d3ee] transition-colors duration-200 cursor-pointer;
+  }
+
+  .section-heading {
+    @apply text-3xl font-semibold text-[#36454f] tracking-tight;
+  }
+
+  /* Highlighted service card */
+  .service-card-highlight {
+    box-shadow: 0 0 0 3px #22d3ee, 0 20px 40px -8px rgba(34,211,238,0.3);
+    transform: translateY(-4px);
+    transition: all 0.4s ease;
+  }
+
+  /* Smooth card hover */
+  .service-card {
+    transition: all 0.3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -8px rgba(0,0,0,0.12);
+  }
+
+  /* WhatsApp pulse animation */
+  @keyframes wa-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+    50% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+  }
+  .wa-pulse {
+    animation: wa-pulse 2s ease-in-out infinite;
+  }
+
+  /* Fade-in on scroll */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  /* Mobile menu slide */
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-down {
+    animation: slideDown 0.25s ease-out forwards;
+  }
+}
